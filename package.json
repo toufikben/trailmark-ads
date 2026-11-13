@@ -1,0 +1,11 @@
+{
+  "name": "trailmark-ads",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Trailmark ad films, made entirely in code: a static page with render(t), a headless browser, ffmpeg",
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "playwright-core": "^1.63.0"
+  }
+}
