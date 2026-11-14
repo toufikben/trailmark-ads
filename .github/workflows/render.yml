@@ -3,6 +3,9 @@ name: render
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - '**/*.md'
+      - 'films/**/build.sh'
   workflow_dispatch:
 
 concurrency:
