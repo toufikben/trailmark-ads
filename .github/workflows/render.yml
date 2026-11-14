@@ -42,6 +42,12 @@ jobs:
       - name: "look frames, so a broken page fails here and not after the whole film"
         run: node render/still.mjs $FILM 0.55 1.30 2.10 3.10 4.40 6.20 7.40 9.40 --size $SIZE --out out/stills
 
+      - name: "ffmpeg, because the image sometimes ships without it"
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          ffmpeg -version | head -1
+
       - name: "picture: silent, so no audio pass and no mux"
         run: node render/video.mjs $FILM --fps $FPS --workers 4 --size $SIZE --out out/film.mp4
 
