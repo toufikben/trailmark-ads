@@ -2,29 +2,25 @@
 
 Short vertical films for **Trailmark** (offline route tracking for Android). No video model,
 no stock footage: a static page exposes `render(t)`, a headless browser photographs every frame,
-ffmpeg and numpy make the sound.
+ffmpeg encodes. Silent for now — the score comes later.
 
 The render kit in `render/` is the MIT-licensed renderer from
 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) (`core/render/`, unchanged);
-the film itself is `films/trailmark-dawn/`.
-
-## Films
+the film itself is `films/trailmark-ride/`. Style: **silhouette-rhythm**.
 
 | film | length | size | style |
 |---|---|---|---|
-| `trailmark-dawn` — «بلا شبكة» | 8.0 s | 1080×1920 @ 30 fps | silhouette-rhythm |
+| `trailmark-ride` — «كل هذا المسار» | 10.0 s | 1080×1920 @ 30 fps | silhouette-rhythm |
 
 ## Build
 
-Every push to `main` renders on GitHub Actions and publishes a release with the mp4 and the
-style frames: **Actions → render → the latest run → Releases**, or
-`https://github.com/toufikben/trailmark-ads/releases/latest`.
+Every push to `main` renders on GitHub Actions and publishes a release with the mp4 and
+the style frames: **Actions → render → Releases**.
 
-Locally (needs Node 20+, ffmpeg 7+, Python 3.11+ with numpy and scipy):
+Locally (needs Node 20+ and a Chromium):
 
 ```sh
 npm install
 node node_modules/playwright-core/cli.js install chromium-headless-shell
-python -m pip install numpy scipy
-sh films/trailmark-dawn/build.sh
+sh films/trailmark-ride/build.sh
 ```
